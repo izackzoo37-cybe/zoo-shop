@@ -1,4 +1,4 @@
-const API_BASE = 'http://localhost:4000/api';
+const API_BASE = 'https://zoo-backend-production.up.railway.app/api';
 
 // ---------------- state ----------------
 let authToken = localStorage.getItem('zoo_token');
