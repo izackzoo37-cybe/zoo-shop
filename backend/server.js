@@ -2,6 +2,12 @@ require('dotenv').config();
 const path = require('path');
 const express = require('express');
 const cors = require('cors');
+const mongoose = require("mongoose");
+require("dotenv").config();
+
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log("MongoDB connected"))
+  .catch((err) => console.error("Connection error:", err));
 
 const authRoutes = require('./routes/auth');
 const productRoutes = require('./routes/products');
@@ -13,8 +19,13 @@ const chatRoutes = require('./routes/chat');
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+    origin: "https://zoo-shop-production.up.railway.app",
+    credentials: true
+}));
+
 app.use(express.json());
+
 
 app.get('/api/health', (_req, res) => res.json({ status: 'ok' }));
 
