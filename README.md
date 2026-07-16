@@ -225,3 +225,4 @@ Worth doing on your end before this is "real":
   near production.
 - Everything is priced in KES as whole shillings, matching how you've had
   other parts of this built — adjust `db.js` if you need a different currency.
+# zoo-shop
